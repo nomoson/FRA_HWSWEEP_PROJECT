@@ -1,0 +1,179 @@
+D:\WinProject\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe.config
+D:\WinProject\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.ResolveComReference.cache
+D:\WinProject\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe
+D:\WinProject\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.pdb
+D:\WinProject\FRA_INFO\FRA_INFO\bin\x64\Debug\fra_peak.dll
+D:\WinProject\FRA_INFO\FRA_INFO\bin\x64\Debug\MWArray.dll
+D:\WinProject\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csprojResolveAssemblyReference.cache
+D:\WinProject\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Form1.resources
+D:\WinProject\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Properties.Resources.resources
+D:\WinProject\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.GenerateResource.Cache
+D:\WinProject\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.exe
+D:\WinProject\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.pdb
+D:\WinProject\FRA_INFO_20180124\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe.config
+D:\WinProject\FRA_INFO_20180124\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe
+D:\WinProject\FRA_INFO_20180124\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.pdb
+D:\WinProject\FRA_INFO_20180124\FRA_INFO\FRA_INFO\bin\x64\Debug\MWArray.dll
+D:\WinProject\FRA_INFO_20180124\FRA_INFO\FRA_INFO\bin\x64\Debug\peakDemoLoadfile.dll
+D:\WinProject\FRA_INFO_20180124\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csprojResolveAssemblyReference.cache
+D:\WinProject\FRA_INFO_20180124\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.ResolveComReference.cache
+D:\WinProject\FRA_INFO_20180124\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Form1.resources
+D:\WinProject\FRA_INFO_20180124\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Properties.Resources.resources
+D:\WinProject\FRA_INFO_20180124\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.GenerateResource.Cache
+D:\WinProject\FRA_INFO_20180124\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.exe
+D:\WinProject\FRA_INFO_20180124\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.pdb
+D:\FRA\FRA_INFO_20180127\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe.config
+D:\FRA\FRA_INFO_20180127\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.ResolveComReference.cache
+D:\FRA\FRA_INFO_20180127\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.exe
+D:\FRA\FRA_INFO_20180127\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.pdb
+D:\FRA\FRA_INFO_20180127\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe
+D:\FRA\FRA_INFO_20180127\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.pdb
+D:\FRA\FRA_INFO_20180127\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csprojResolveAssemblyReference.cache
+D:\FRA\FRA_INFO_20180127\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Form1.resources
+D:\FRA\FRA_INFO_20180127\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Properties.Resources.resources
+D:\FRA\FRA_INFO_20180127\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.GenerateResource.Cache
+E:\CNC_20170330\Fwd_ FRA info\0.project\FRA_INFO_20180128\FRA_INFO_20180127\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe.config
+E:\CNC_20170330\Fwd_ FRA info\0.project\FRA_INFO_20180128\FRA_INFO_20180127\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.ResolveComReference.cache
+E:\CNC_20170330\Fwd_ FRA info\0.project\FRA_INFO_20180128\FRA_INFO_20180127\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.exe
+E:\CNC_20170330\Fwd_ FRA info\0.project\FRA_INFO_20180128\FRA_INFO_20180127\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.pdb
+E:\CNC_20170330\Fwd_ FRA info\0.project\FRA_INFO_20180128\FRA_INFO_20180127\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe
+E:\CNC_20170330\Fwd_ FRA info\0.project\FRA_INFO_20180128\FRA_INFO_20180127\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.pdb
+E:\CNC_20170330\Fwd_ FRA info\0.project\FRA_INFO_20180128\FRA_INFO_20180127\FRA_INFO\FRA_INFO\bin\x64\Debug\MWArray.dll
+E:\CNC_20170330\Fwd_ FRA info\0.project\FRA_INFO_20180128\FRA_INFO_20180127\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csprojResolveAssemblyReference.cache
+E:\CNC_20170330\Fwd_ FRA info\0.project\FRA_INFO_20180128\FRA_INFO_20180127\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Form1.resources
+E:\CNC_20170330\Fwd_ FRA info\0.project\FRA_INFO_20180128\FRA_INFO_20180127\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Properties.Resources.resources
+E:\CNC_20170330\Fwd_ FRA info\0.project\FRA_INFO_20180128\FRA_INFO_20180127\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.GenerateResource.Cache
+D:\FRA\FRA_INFO_20180130\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe.config
+D:\FRA\FRA_INFO_20180130\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.ResolveComReference.cache
+D:\FRA\FRA_INFO_20180130\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.exe
+D:\FRA\FRA_INFO_20180130\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.pdb
+D:\FRA\FRA_INFO_20180130\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe
+D:\FRA\FRA_INFO_20180130\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.pdb
+D:\FRA\FRA_INFO_20180130\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csprojResolveAssemblyReference.cache
+D:\FRA\FRA_INFO_20180130\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Form1.resources
+D:\FRA\FRA_INFO_20180130\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Properties.Resources.resources
+D:\FRA\FRA_INFO_20180130\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.GenerateResource.Cache
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180130B\FRA_INFO_20180130B\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe.config
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180130B\FRA_INFO_20180130B\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.ResolveComReference.cache
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180130B\FRA_INFO_20180130B\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.exe
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180130B\FRA_INFO_20180130B\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.pdb
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180130B\FRA_INFO_20180130B\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180130B\FRA_INFO_20180130B\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.pdb
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180130B\FRA_INFO_20180130B\FRA_INFO\FRA_INFO\bin\x64\Debug\MWArray.dll
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180130B\FRA_INFO_20180130B\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csprojResolveAssemblyReference.cache
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180130B\FRA_INFO_20180130B\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Form1.resources
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180130B\FRA_INFO_20180130B\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Properties.Resources.resources
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180130B\FRA_INFO_20180130B\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.GenerateResource.Cache
+E:\BaiduNetdiskDownload\FRA_INFO_20180131\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe.config
+E:\BaiduNetdiskDownload\FRA_INFO_20180131\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe
+E:\BaiduNetdiskDownload\FRA_INFO_20180131\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.pdb
+E:\BaiduNetdiskDownload\FRA_INFO_20180131\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csprojResolveAssemblyReference.cache
+E:\BaiduNetdiskDownload\FRA_INFO_20180131\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.ResolveComReference.cache
+E:\BaiduNetdiskDownload\FRA_INFO_20180131\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Form1.resources
+E:\BaiduNetdiskDownload\FRA_INFO_20180131\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Properties.Resources.resources
+E:\BaiduNetdiskDownload\FRA_INFO_20180131\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.GenerateResource.Cache
+E:\BaiduNetdiskDownload\FRA_INFO_20180131\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.exe
+E:\BaiduNetdiskDownload\FRA_INFO_20180131\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.pdb
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180201\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe.config
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180201\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.ResolveComReference.cache
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180201\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.exe
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180201\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.pdb
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180201\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180201\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.pdb
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180201\FRA_INFO\FRA_INFO\bin\x64\Debug\MWArray.dll
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180201\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csprojResolveAssemblyReference.cache
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180201\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Form1.resources
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180201\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Properties.Resources.resources
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180201\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.GenerateResource.Cache
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180202\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe.config
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180202\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180202\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.pdb
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180202\FRA_INFO\FRA_INFO\bin\x64\Debug\MWArray.dll
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180202\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csprojResolveAssemblyReference.cache
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180202\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.ResolveComReference.cache
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180202\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Form1.resources
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180202\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Properties.Resources.resources
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180202\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.GenerateResource.Cache
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180202\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.exe
+E:\CNC_20170330\Fwd_ FRA info\3.sample code\FRA_INFO_20180202\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.pdb
+D:\1_Project\FRA_INFO_20180205\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe.config
+D:\1_Project\FRA_INFO_20180205\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.ResolveComReference.cache
+D:\1_Project\FRA_INFO_20180205\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.exe
+D:\1_Project\FRA_INFO_20180205\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.pdb
+D:\1_Project\FRA_INFO_20180205\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csprojResolveAssemblyReference.cache
+D:\1_Project\FRA_INFO_20180205\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Form1.resources
+D:\1_Project\FRA_INFO_20180205\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Properties.Resources.resources
+D:\1_Project\FRA_INFO_20180205\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.GenerateResource.Cache
+D:\1_Project\FRA_INFO_20180205\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe
+D:\1_Project\FRA_INFO_20180205\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.pdb
+D:\1_Project\FRA_INFO_20180205\FRA_INFO\FRA_INFO\bin\x64\Debug\peaklib.dll
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180615\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe.config
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180615\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.ResolveComReference.cache
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180615\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.exe
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180615\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.pdb
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180615\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180615\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.pdb
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180615\FRA_INFO\FRA_INFO\bin\x64\Debug\peaklib.dll
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180615\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csprojResolveAssemblyReference.cache
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180615\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Form1.resources
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180615\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Properties.Resources.resources
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180615\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.GenerateResource.Cache
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180624\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe.config
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180624\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.ResolveComReference.cache
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180624\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.exe
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180624\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.pdb
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180624\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180624\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.pdb
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180624\FRA_INFO\FRA_INFO\bin\x64\Debug\peaklib.dll
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180624\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csprojResolveAssemblyReference.cache
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180624\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Form1.resources
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180624\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Properties.Resources.resources
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180624\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.GenerateResource.Cache
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180703\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe.config
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180703\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.ResolveComReference.cache
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180703\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.exe
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180703\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.pdb
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180703\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180703\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.pdb
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180703\FRA_INFO\FRA_INFO\bin\x64\Debug\peaklib.dll
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180703\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csprojResolveAssemblyReference.cache
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180703\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Form1.resources
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180703\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Properties.Resources.resources
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180703\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.GenerateResource.Cache
+D:\1_Project\FRA_INFO_20180704\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe.config
+D:\1_Project\FRA_INFO_20180704\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.ResolveComReference.cache
+D:\1_Project\FRA_INFO_20180704\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.exe
+D:\1_Project\FRA_INFO_20180704\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.pdb
+D:\1_Project\FRA_INFO_20180704\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe
+D:\1_Project\FRA_INFO_20180704\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.pdb
+D:\1_Project\FRA_INFO_20180704\FRA_INFO\FRA_INFO\bin\x64\Debug\peaklib.dll
+D:\1_Project\FRA_INFO_20180704\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csprojResolveAssemblyReference.cache
+D:\1_Project\FRA_INFO_20180704\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Form1.resources
+D:\1_Project\FRA_INFO_20180704\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Properties.Resources.resources
+D:\1_Project\FRA_INFO_20180704\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.GenerateResource.Cache
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180706\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe.config
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180706\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.ResolveComReference.cache
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180706\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.exe
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180706\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.pdb
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180706\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180706\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.pdb
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180706\FRA_INFO\FRA_INFO\bin\x64\Debug\peaklib.dll
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180706\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csprojResolveAssemblyReference.cache
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180706\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Form1.resources
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180706\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Properties.Resources.resources
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180706\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.GenerateResource.Cache
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180710\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe.config
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180710\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.ResolveComReference.cache
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180710\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.exe
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180710\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.pdb
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180710\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180710\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.pdb
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180710\FRA_INFO\FRA_INFO\bin\x64\Debug\peaklib.dll
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180710\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csprojResolveAssemblyReference.cache
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180710\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Form1.resources
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180710\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Properties.Resources.resources
+C:\Users\jay\Documents\Visual Studio 2015\Projects\FRA_INFO_20180710\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.GenerateResource.Cache
+C:\Users\jay\Documents\GitHub\FRA_HWSWEEP_PROJECT\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe.config
+C:\Users\jay\Documents\GitHub\FRA_HWSWEEP_PROJECT\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.ResolveComReference.cache
+C:\Users\jay\Documents\GitHub\FRA_HWSWEEP_PROJECT\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.exe
+C:\Users\jay\Documents\GitHub\FRA_HWSWEEP_PROJECT\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.pdb
