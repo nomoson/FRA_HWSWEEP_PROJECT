@@ -10,20 +10,20 @@ namespace PeakSearch
 {
     public class Peak_Search
     {
-        public Peak_Search()
+        public Peak_Search() // constructor
         {
         }
         public List<List<float>> startPeakSearch(string filename )
         {
-            // for 7375 parameters
-            float SlopeThreshold = 2.0F, AmpThreshold = -5.0F;
+            
+            float SlopeThreshold = 0.8F, AmpThreshold = -5.0F;  // for 7374 parameters
+            //float SlopeThreshold = 2.0F, AmpThreshold = -5.0F; // for 7371 parameters
             int i = 0, counter = 0, smoothwidth = 1, peakgroup = 3, smoothtype = 1, ends = 0;
             string line;
 
             // Read the file and count & display lines.  
             // FileStream fs = new FileStream(@"D:\1_Project\PeakSearch\7375.txt", FileMode.Open);
-             FileStream fs = new FileStream(filename, FileMode.Open);
-
+            FileStream fs = new FileStream(filename, FileMode.Open);
             StreamReader file = new StreamReader(fs, Encoding.Default);
             while ((line = file.ReadLine()) != null)
             {
@@ -31,9 +31,8 @@ namespace PeakSearch
                 counter++;
             }
             fs.Position = 0;
-
-            System.Console.WriteLine("There were {0} Raw lines.", counter);
-            Console.WriteLine("-------------------------");
+            //System.Console.WriteLine("There were {0} Raw lines.", counter);
+            //Console.WriteLine("-------------------------");
             // Suspend the screen.  
             System.Console.ReadLine();
 

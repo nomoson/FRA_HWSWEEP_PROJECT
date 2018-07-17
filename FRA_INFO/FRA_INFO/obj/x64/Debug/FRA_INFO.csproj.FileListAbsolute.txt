@@ -177,3 +177,10 @@ C:\Users\jay\Documents\GitHub\FRA_HWSWEEP_PROJECT\FRA_INFO\FRA_INFO\bin\x64\Debu
 C:\Users\jay\Documents\GitHub\FRA_HWSWEEP_PROJECT\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.ResolveComReference.cache
 C:\Users\jay\Documents\GitHub\FRA_HWSWEEP_PROJECT\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.exe
 C:\Users\jay\Documents\GitHub\FRA_HWSWEEP_PROJECT\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.pdb
+C:\Users\jay\Documents\GitHub\FRA_HWSWEEP_PROJECT\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.exe
+C:\Users\jay\Documents\GitHub\FRA_HWSWEEP_PROJECT\FRA_INFO\FRA_INFO\bin\x64\Debug\FRA_INFO.pdb
+C:\Users\jay\Documents\GitHub\FRA_HWSWEEP_PROJECT\FRA_INFO\FRA_INFO\bin\x64\Debug\peaklib.dll
+C:\Users\jay\Documents\GitHub\FRA_HWSWEEP_PROJECT\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csprojResolveAssemblyReference.cache
+C:\Users\jay\Documents\GitHub\FRA_HWSWEEP_PROJECT\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Form1.resources
+C:\Users\jay\Documents\GitHub\FRA_HWSWEEP_PROJECT\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.Properties.Resources.resources
+C:\Users\jay\Documents\GitHub\FRA_HWSWEEP_PROJECT\FRA_INFO\FRA_INFO\obj\x64\Debug\FRA_INFO.csproj.GenerateResource.Cache

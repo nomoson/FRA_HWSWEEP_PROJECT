@@ -1,13 +1,17 @@
 ﻿/* Subject:Revised notices, Author: Jay
- * Date:6/23/2018    
+ * [Date:6/23/2018]    
    1.Set loopMax = Math.Round(end_numFreq) to control data amount automatically.
-   2.Adjusted "realFreq" format to 2 dig. floting in ploting and peakData.txt.
+   2.Adjusted "realFreq" format to one fixed-point in ploting and peakData.txt.
    3.DataBindY --> chart1.Series.Points.DataBindXY(x,y)
      AddY --> chart1.Series.Points.AddXY(x,y)
- * Date:7/10/2018   
+ * [Date:7/10/2018]   
    4.Revised functions of fra_confirm_setting() & fra_confirm_exit_setting() by confirmByte(Ox80/0x00)
    5.Set input text_Amp to Byte_Amp      
-   6.PeakSeach.cs changed criteria from 3 to (peakgroup < 4)    */
+   6.PeakSeach.cs changed criteria from 3 to (peakgroup < 4)    
+ * [Date:7/17/2018] 
+   7.fra_exit_setting() & fra_confirm_ exit_setting() must to be executed last after measure completeness;
+   8.Remain consistent in CSV & txt file format.
+   9.Cancel fcn startPeakSearch displays data.   */
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -297,14 +301,6 @@ namespace FRA_INFO
             
         }
 
-
-        /// <summary>
-        /// 点击checkBox，设置SingFreq
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-   
-
         /// <summary>
         /// 分析peak value
         /// </summary>
@@ -319,7 +315,6 @@ namespace FRA_INFO
                 //    MWCharArray stringFileName = @"D:\matlab_example\WindowsFormsApplication1\text2.txt";
                 List<List<float>> Plist; //2D list 
 
-                //Plist= peakSearch.startPeakSearch(filePath+"7375.txt");
                 Plist = peakSearch.startPeakSearch(filename);
 
                 Console.WriteLine("PeakSearch SUMMARY");
@@ -496,7 +491,6 @@ namespace FRA_INFO
             {
                 Console.WriteLine(lines[i]);
                 string[] myStrA = lines[i].Split(' ');
-
 
                 lx.Add(Double.Parse((myStrA[0])));
                 ly.Add(Double.Parse((myStrA[1])));
@@ -683,7 +677,6 @@ namespace FRA_INFO
                 {
                     File.Create(csvPath);
                 }
-                // string serialData = fra_measure_freq();
                 //serialData = "10,16.1,-2";
                 if (serialData != null)
                 {
@@ -733,6 +726,25 @@ namespace FRA_INFO
             if (portName == "")
             {
                 this.cmbSerials.Text = "";
+            }
+        }
+
+        //20180128, robert liao , test funciton code
+        //implement fra_peak class
+        //move below fra_function to fra_peak class
+        private void fra_serial_open()
+        {
+            Debug.WriteLine("==========fra_serial_open=========");
+            Debug.WriteLine("fra seial open, port:" + serialPort1.PortName.ToString());
+            cmbSerials.Text = serialPort1.PortName.ToString();
+            try
+            {
+                serialPort1.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "fra_serial_open", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
         }
 
@@ -969,41 +981,22 @@ namespace FRA_INFO
                 fra_getID(); //robert, analysis not need to get pid.; Jay[7/04]
                 fra_change_setting_mode();
                 fra_confirm_setting();//Jay[7/04]
-                fra_exit_setting();
-                //fra_confirm_exit_setting(); //Jay[7/04]
                 while (status == false && retry < maxRetry)
                 {
                     status = fra_initialize();
-                    Thread.Sleep(1000);
+                    //Thread.Sleep(1000); // Jay[7/17]
                 }
                 //isFRA_Open = status; // Jay[7/06] indicate initial status
                 string data = fra_measure_freq();
-                Debug.WriteLine("retrun data  =  ",data);
+                //Debug.WriteLine("retrun data  =  ",data);
                 fra_disable();
+                fra_exit_setting();  //Jay[7/16]
+                fra_confirm_exit_setting(); //Jay[7/16]
                 serialPort1.Close();
             }
             else
             {
                 MessageBox.Show("Port not OPEN", "fra_serial_open");
-            }
-        }
-
-        //20180128, robert liao , test funciton code
-        //implement fra_peak class
-        //move below fra_function to fra_peak class
-        private void fra_serial_open()
-        {
-            Debug.WriteLine("==========fra_serial_open=========");
-            Debug.WriteLine("fra seial open, port:" + serialPort1.PortName.ToString());
-            cmbSerials.Text = serialPort1.PortName.ToString();
-            try
-            {
-                serialPort1.Open();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "fra_serial_open", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
             }
         }
 
@@ -1105,6 +1098,7 @@ namespace FRA_INFO
             {
                 serialPort1.Write(buffer, 0, 4);
                 serialPort1.DiscardOutBuffer();
+                Thread.Sleep(30);
             }
             catch (Exception ex)
             {
@@ -1119,7 +1113,8 @@ namespace FRA_INFO
         private void fra_confirm_exit_setting()
         {
             Debug.WriteLine("==========fra_confirm_exit_setting=========");
-            byte[] buffer = new byte[] { 0x03, 0x02, 0x00, 0x00 }; //command 同fra_confirm_setting???
+            byte[] buffer = new byte[] { 0x03, 0x02, 0x00, 0x00 };
+            byte confirmByte = 0x00; // Jay[7/10]
             try
             {
                 serialPort1.Write(buffer, 0, 4);
@@ -1128,12 +1123,10 @@ namespace FRA_INFO
                 int bufSize = serialPort1.BytesToRead;
                 byte[] rbuffer = new byte[bufSize];
                 serialPort1.Read(rbuffer, 0, bufSize);
-                //pid[0] = rbuffer[2];
-                byte confirmByte = 0x00; // Jay[7/10]
                 bool status = false;
                 if (rbuffer[0] == 0x00 & rbuffer[1] == 0x00 & rbuffer[3] == 0x00)
                 {
-                    if ((rbuffer[2] & 0x00) == confirmByte)//00000000 Jay[7/10]
+                    if ((rbuffer[2] & 0x80) == confirmByte)//00000000 Jay[7/10]
                         status = true;
                 }
                 Debug.WriteLine("Confirm exit setting mode status = " + status.ToString()); //Jay[7/04]
@@ -1170,7 +1163,9 @@ namespace FRA_INFO
             {
                 MessageBox.Show("Retry Integer Value", "Overflow", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+
             byte[] buffer = new byte[] { 0x19, Ampbyte, 0x0, 0x0 }; // Open loop Jay[7/06]
+
             if (isFRA_Open == false)
                 buffer = new byte[] { 0x1A, Ampbyte, 0x0, 0x0 }; // Close loop Jay[7/06]
             try
@@ -1220,6 +1215,7 @@ namespace FRA_INFO
         {
             Debug.WriteLine("==========fra_disable=========");
             byte[] buffer = new byte[] { 0x1B, 0x0, 0x0, 0x0 }; // Open loop Jay[7/06]
+
             if (isFRA_Open == false)
                 buffer = new byte[] { 0x1C, 0x0, 0x0, 0x0 }; // Close loop Jay[7/06]
             try
@@ -1275,20 +1271,21 @@ namespace FRA_INFO
                 Debug.WriteLine("==========fra_measure_freq=========");
 
                 //---measure FRA
-                uint IDvalue = 0;
+                uint IDvalue = 0; // singel frequency
                 double realFreq = 0f;
                 int sleepTime = 0;
                 double pF = 0;
                 int numFreq = 0;
                 int end_numFreq = 0;
                 int loopMax = 0; // Jay[6/23]
-
                 //StreamWriter wt = null;
                 //string strMode = "Close";
+
                 //if (isFRA_Open == true)
                 //    strMode = "Open"; //for printout Jay[7/06]
+
                 //如果isFRA_SingleFreq==true，从IDvalue获取值
-                if (isFRA_SingleFreq == true) //---變動freq. (設定freq.再轉換成numFreq)
+                if (isFRA_SingleFreq == true) //---Single freq. (設定freq.再轉換成numFreq)
                 {
                     IDvalue = 10;
                     //IDvalue = 9000;
@@ -1307,17 +1304,14 @@ namespace FRA_INFO
                         numFreq = 0;
                         pF = (pF - 1f) / 0.01;
                     }
+                }
 
-                } //if (isSingleFreq == true) //---變動freq.
-                //isFRA_SingleFreq == false,从startFreq & endFreq获取值
-                else //掃頻mode 變動numFreq
-                {
-                    //MessageBox.Show("Start Test Freq. : 10 ~ 10000 Hz");
+                else // 掃頻mode 變動numFreq
+                { // isFRA_SingleFreq == false, 从startFreq & endFreq获取值
+              //    MessageBox.Show("Start Test Freq. : 10 ~ 10000 Hz");
                     int startFreq = int.Parse(txtStartFreq.Text);
-                    //int startFreq = 1000;
                     int endFreq = int.Parse(txtEndFreq.Text);
-                    //int endFreq = 5000;
-              //      MessageBox.Show("Scan Test Freq. : " + startFreq.ToString() + "~" + endFreq.ToString() + "Hz");
+              //    MessageBox.Show("Scan Test Freq. : " + startFreq.ToString() + "~" + endFreq.ToString() + "Hz");
                     if (startFreq < 10)
                     {
                         MessageBox.Show("Scan Start freq. must > 10");
@@ -1328,22 +1322,18 @@ namespace FRA_INFO
                         MessageBox.Show("Scan end freq. must <= 10000");
                         return data;
                     }
-                    numFreq = (int)(Math.Round((Math.Log10(startFreq) - 1) / 0.01, 0, MidpointRounding.AwayFromZero));//Math.Round实现中国式四舍五入
+
+                    numFreq = (int)(Math.Round((Math.Log10(startFreq) - 1) / 0.01, 0, MidpointRounding.AwayFromZero));//Math.Round
                     end_numFreq = (int)(Math.Round((Math.Log10(endFreq) - 1) / 0.01, 0, MidpointRounding.AwayFromZero));
-                    //int loopMax = (int)(Math.Round((double)end_numFreq, MidpointRounding.AwayFromZero));
-                    //loopMax = 10; //to 10232.936 Hz
-                   //IDvalue = 10; //初始 10 Hz                    
+                    loopMax = (int)(Math.Round((double)end_numFreq, MidpointRounding.AwayFromZero)); // Jay[6/23]
                     data = "Freq,Gain,Phase";
-               //     return data;                    
                 }
 
-                loopMax = (int)(Math.Round((double)end_numFreq, MidpointRounding.AwayFromZero)); // Jay[6/23]
                 //sleepTime = (int)(30 * 1000 / IDvalue);
                 //pF = Math.Log10(IDvalue);
                 //numFreq = 0;
                 //pF = (pF - 1f) / 0.01;
-
-                for (int i = 0; i <= loopMax; i++)
+                for (int i = 0; i <= loopMax; i++) // i =0, 初始 10 Hz
                 {
                     //????  Application.DoEvents();
                     if (isFRA_SingleFreq == true)
@@ -1362,13 +1352,16 @@ namespace FRA_INFO
                     if (kk > end_numFreq)//大于end_numFreq
                         break;
                     //MessageBox.Show(numFreq.ToString() + "," + numFreq_high.ToString() + "," + numFreq_low.ToString() + "," + kk.ToString());
+
                     //open loop mode command 0x17, 0x0, numFreq_high, numFreq_low
                     byte[] buffer = new byte[] { 0x17, 0x0, numFreq_high, numFreq_low };
                     if (isFRA_Open == false)  
                         buffer = new byte[] { 0x18, 0x0, numFreq_high, numFreq_low };//close loop mode
+
                     serialPort1.Write(buffer, 0, 4);
                     serialPort1.DiscardOutBuffer();
                     Thread.Sleep(sleepTime + 100); //wait return data ready
+
                     //----receive return data
                     int rLength = 0;
                     int tryMax = 50;
@@ -1380,37 +1373,32 @@ namespace FRA_INFO
                         rLength = serialPort1.BytesToRead; //看buffer區有多少bytes 读取串口数据的长度
                         tryIndex++;
                     }
+
                     if (rLength >= 17) //有資料才讀，不然會死機
                     {
                         byte[] rbuffer = new byte[rLength]; // 创建动态的数组，数组的长度是从串口中读到
                         serialPort1.Read(rbuffer, 0, rLength);//从串口中读取数据放到数组中
                         str1 = System.Text.Encoding.ASCII.GetString(rbuffer);
                         str2 = str1.Split(',');//单字符切割 
-                        //saveData += IDvalue.ToString() + ',' + str1+'\n'; //Jay[7/04]
-                        saveData += realFreq.ToString("f1") + ',' + str1 + '\n'; //Jay[7/04] "FRA_test.csv"
 
                         double dGain = double.NegativeInfinity;
                         double dPhase = double.NegativeInfinity;
-
                         double.TryParse(str2[0], out dGain);
                         double.TryParse(str2[1], out dPhase);
 
                         double realFreq_data = Math.Round(realFreq, 1, MidpointRounding.AwayFromZero);
-                        double dGain_data = Math.Round(dGain, 1, MidpointRounding.AwayFromZero);
-                        //double dPhase_data = Math.Round(dPhase, 2, MidpointRounding.AwayFromZero);
                         chart1.Series["Gain"].Points.AddXY(realFreq_data, dGain); //Jay[7/04]
                         chart1.Series["Phase"].Points.AddXY(realFreq_data, dPhase); //Jay[7/04]
-                        Console.Write(realFreq_data + " " + dGain_data + " " + dPhase + "\n"); //Jay[7/04] 
+                        Console.Write(realFreq_data + "," + dGain + "," + dPhase + "\n"); //Jay[7/04] 
                         //        chart1.Series["Phase"].Points.DataBindY(lly); //Jay[6/23]
                         //        chart1.Series["Gain"].Points.DataBindY(llz); //Jay[6/23]
-                        writer.WriteLine(realFreq_data + " " + dGain_data + " " + dPhase);//Jay[6/23]"peakData.txt"
+                        saveData += realFreq.ToString("f1") + "," + str2[0] + "," + str2[1] + '\n';
+                        writer.WriteLine(realFreq_data + " " + dGain + " " + dPhase);//Jay[6/23]"peakData.txt"
 /*
                        if (isFRA_SingleFreq == true)
                         {
                          //   MessageBox.Show(strMode + "> Freq.=" + IDvalue.ToString() + "Hz;Gain = " + str2[0] + ";Phase = " + str2[1]);
-
-
-                             
+ 
                         }
                         else
                         {
@@ -1455,29 +1443,25 @@ namespace FRA_INFO
             catch (Exception ex)
             {
                 MessageBox.Show("初始化串口发生错误：" + ex.Message, "fra_measure_freq", MessageBoxButtons.OK, MessageBoxIcon.Information);
-               
             }
+
             try
             {
                 SaveSerialPortData(cvsfilePath, saveData);//Jay[6/23]保存serial port data to "FRA_test.csv"
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "SaveSerialPortData ERROR");
-
             }
+
             writer.Close();
             chart1.Visible = true;
             btnBeginChart.Text = "数据分析中...";
             btnBeginChart.BackColor = Color.Gray;
             btnBeginChart.Enabled = false;
             AnalysisDataThread();
-
             return data;
         }
-
-
 
         private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
         {
