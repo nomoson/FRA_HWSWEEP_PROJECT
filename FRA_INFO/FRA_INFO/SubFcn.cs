@@ -1,5 +1,6 @@
 ﻿using System; //Array, Math, Convert
 using System.Collections.Generic; //List
+using System.Linq; //Array(min)
 
 namespace PeakSearch
 {
@@ -8,7 +9,18 @@ namespace PeakSearch
         public static int val2ind(float[] x, float val)
         {
             int pindex = 0;
-            pindex = Array.IndexOf(x, val);
+            float[] dif = new float[x.Length];
+            float[] difSb = new float[x.Length];
+            for (int i = 0; i < x.Length; i++)
+            {
+                dif[i] = Math.Abs(x[i] - val); 
+            }
+            for (int i = 0; i < x.Length; i++)
+            {
+                difSb[i] = dif[i] - dif.Min();
+            }
+            //pindex = Array.IndexOf(x, val);
+            pindex = Array.IndexOf(difSb, 0);
             return pindex;
         }
         //

@@ -1,5 +1,4 @@
 ﻿using System;
-//using System;
 using System.IO;
 using System.Text;
 using System.Collections.Generic;
@@ -10,15 +9,32 @@ namespace PeakSearch
 {
     public class Peak_Search
     {
-        public Peak_Search() // constructor
+        public int smoothwidth, peakgroup, smoothtype, ends;
+        public float SlopeThreshold, AmpThreshold;
+        public Peak_Search(int PID) // constructor
         {
+            switch (PID)
+            {
+                case 14: //7374 parameters
+                    SlopeThreshold = 0.8F; AmpThreshold = -5.0F;
+                    break;
+                case 9: //7371 parameters
+                    SlopeThreshold = 2.0F; AmpThreshold = -5.0F; ;
+                    break;
+                default: //7374 parameters
+                    SlopeThreshold = 0.8F; AmpThreshold = -5.0F; ;
+                    break;
+            }
+            smoothwidth = 1; peakgroup = 3; smoothtype = 1; ends = 0;
         }
-        public List<List<float>> startPeakSearch(string filename )
+
+        public List<List<float>> startPeakSearch(string filename)
         {
-            
-            float SlopeThreshold = 0.8F, AmpThreshold = -5.0F;  // for 7374 parameters
-            //float SlopeThreshold = 2.0F, AmpThreshold = -5.0F; // for 7371 parameters
-            int i = 0, counter = 0, smoothwidth = 1, peakgroup = 3, smoothtype = 1, ends = 0;
+
+            //float SlopeThreshold = 0.8F, AmpThreshold = -5.0F;  //7374 parameters
+            //float SlopeThreshold = 2.0F, AmpThreshold = -5.0F; //7371 parameters
+            //int smoothwidth = 1, peakgroup = 3, smoothtype = 1, ends = 0;
+            int i = 0, counter = 0; 
             string line;
 
             // Read the file and count & display lines.  
@@ -115,7 +131,6 @@ namespace PeakSearch
                         if (peakgroup < 4)
                         {
                             PeakY = yy.Max();
-                            pindex = Array.IndexOf(yy, PeakY);
                         }
                         else
                         {
@@ -140,11 +155,7 @@ namespace PeakSearch
              return Plist;
   
             //Console.WriteLine(Plist[1][3]);
-      //      Console.ReadKey();
-        }
-        public void printf()
-        {
-            Debug.WriteLine("==========fuck..Sumit..=======");
+       //     Console.ReadKey();
         }
     }
 }

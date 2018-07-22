@@ -9,9 +9,13 @@
    5.Set input text_Amp to Byte_Amp      
    6.PeakSeach.cs changed criteria from 3 to (peakgroup < 4)    
  * [Date:7/17/2018] 
-   7.fra_exit_setting() & fra_confirm_ exit_setting() must to be executed last after measure completeness;
+   7.fra_exit_setting() & fra_confirm_ exit_setting() must to be executed at last after measure completeness
    8.Remain consistent in CSV & txt file format.
-   9.Cancel fcn startPeakSearch displays data.   */
+   9.Cancel fcn startPeakSearch displays data.   
+* [Date:7/22/2018]
+  10.Detect-IC button can response AKM7374/7371/7375/NONE.
+  11.Employ class Peak_Search constructor to switch search parameters.      */
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -60,9 +64,8 @@ namespace FRA_INFO
         System.Data.DataTable dtCsv = new System.Data.DataTable();
         
         //FRA porting--parameter start
-        //SerialPort serialPort_DriverBoard;
         static int tryMax = 50;
-        //static int loopMax = 0; // Jay[6/23]
+        public static int PID = 0; //Jay[7/20]
         //int DriverType = 1;
         bool isFRA_Open = true; //Jay[6/23] set open loop mode
         bool isFRA_SingleFreq = false;
@@ -92,14 +95,14 @@ namespace FRA_INFO
             SetChart();
             ClearDataTable(dtExcel);
             ClearDataTable(dtCsv);
-            peakSearch = new Peak_Search();
+            peakSearch = new Peak_Search(PID);
             // peakSearch.printf();
             // GetSerialPort();
 
         }
 
         /// <summary>
-        /// 点击开始button thread 画图 & MATLAB分析数据
+        /// 点击开始button thread 画图 & 分析数据
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -294,12 +297,6 @@ namespace FRA_INFO
             dataTableName.Clear();
         }
 
-
-        //Click start button
-        private void btnStart_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         /// <summary>
         /// 分析peak value
@@ -708,12 +705,6 @@ namespace FRA_INFO
             }
         }
 
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         /// <summary>
         /// 获取COM Number
         /// </summary>
@@ -784,19 +775,19 @@ namespace FRA_INFO
             this.dataGridView1.Rows[index1].Cells[0].Value = "f1";
             this.dataGridView1.Rows[index1].Cells[4].Value = "Hz";
             int index2 = this.dataGridView1.Rows.Add();
-            this.dataGridView1.Rows[index2].Cells[0].Value = "1st_Q";
+            this.dataGridView1.Rows[index2].Cells[0].Value = "Q1";
             this.dataGridView1.Rows[index2].Cells[4].Value = "dB";
             int index3 = this.dataGridView1.Rows.Add();
             this.dataGridView1.Rows[index3].Cells[0].Value = "f2";
             this.dataGridView1.Rows[index3].Cells[4].Value = "Hz";
             int index4 = this.dataGridView1.Rows.Add();
-            this.dataGridView1.Rows[index4].Cells[0].Value = "2nd_Q";
+            this.dataGridView1.Rows[index4].Cells[0].Value = "Q2";
             this.dataGridView1.Rows[index4].Cells[4].Value = "dB";
             int index5 = this.dataGridView1.Rows.Add();
             this.dataGridView1.Rows[index5].Cells[0].Value = "f3";
             this.dataGridView1.Rows[index5].Cells[4].Value = "Hz";
             int index6 = this.dataGridView1.Rows.Add();
-            this.dataGridView1.Rows[index6].Cells[0].Value = "3rd_Q";
+            this.dataGridView1.Rows[index6].Cells[0].Value = "Q3";
             this.dataGridView1.Rows[index6].Cells[4].Value = "dB";
             //设置不显示最后一行
             this.dataGridView1.AllowUserToAddRows = true;
@@ -963,11 +954,6 @@ namespace FRA_INFO
             }
         }
 
-        private void btnAFON_Click(object sender, EventArgs e)
-        {
-
-        }
-
         //RS23:9600,8,None,1
         public void fra_Function()
         {
@@ -978,7 +964,7 @@ namespace FRA_INFO
                 int retry = 0;
                 int maxRetry = 5;
 
-                fra_getID(); //robert, analysis not need to get pid.; Jay[7/04]
+                //fra_getID(); //robert, analysis not need to get pid.; Jay[7/04]
                 fra_change_setting_mode();
                 fra_confirm_setting();//Jay[7/04]
                 while (status == false && retry < maxRetry)
@@ -1003,7 +989,7 @@ namespace FRA_INFO
         /// <summary>
         /// 读取driver IC Product 
         /// </summary>
-        private void fra_getID()
+        private int fra_getID()
         {
             try
             {
@@ -1018,17 +1004,20 @@ namespace FRA_INFO
                 serialPort1.Read(rbuffer, 0, bufSize);//读取数据
                 if (rbuffer[0] == 0x00 & rbuffer[1] == 0x00 & rbuffer[3] == 0x00)
                 {
-                    Debug.WriteLine("fra PID:" + ((int)rbuffer[2]).ToString());
+                    PID = (int)rbuffer[2];
+                    Debug.WriteLine("fra PID:" + PID.ToString());
+                    return PID;
                 }
                 else
                 {
                     Debug.WriteLine("fra get PID fail");
+                    return PID;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("初始化串口发生错误：" + ex.Message, "fra_getID", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+                return PID;
             }
         }
 
@@ -1476,20 +1465,48 @@ namespace FRA_INFO
             Debug.WriteLine(" isFake_data_test=" + isFake_data_test);
         }
 
+        private void btnIDvalue_Click(object sender, EventArgs e)
+        {
+            fra_getID();
+            this.combxIDvalue.Items.Clear();
+            try
+            {
+                switch (PID)
+                {
+                    case 14:
+                        this.combxIDvalue.Text = "AKM7374";
+                        break;
+                    case 9:
+                        this.combxIDvalue.Text = "AKM7371";
+                        break;
+                    case 15:
+                        this.combxIDvalue.Text = "AKM7375";
+                        break;
+                    default:
+                        this.combxIDvalue.Text = "NONE";
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("None PID Return" + ex.Message, "PID Initialization Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            combxIDvalue.Items.Clear();
+        }
+
         private void chk_ch1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAFON_Click(object sender, EventArgs e)
         {
 
         }
     }
 
 }
-
-
-
-
-
-
-
-
-
-
