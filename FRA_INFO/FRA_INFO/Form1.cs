@@ -14,7 +14,9 @@
    9.Cancel fcn startPeakSearch displays data.   
 * [Date:7/22/2018]
   10.Detect-IC button can response AKM7374/7371/7375/NONE.
-  11.Employ class Peak_Search constructor to switch search parameters.      */
+  11.Employ class Peak_Search constructor to switch search parameters.
+* [Date:7/30/2018] 
+  12.Activate Amp & Offset TrackBar       */
 
 using System;
 using System.Collections;
@@ -30,8 +32,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-using MathWorks.MATLAB.NET.Arrays;
-using MathWorks.MATLAB.NET.Utility;
 using peaklib;
 using Excel = Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Interop.Excel;
@@ -50,7 +50,7 @@ namespace FRA_INFO
     
     public partial class Form1 : Form
     {
-        //   static String fileName = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "7373.xlsx";//客户提供file      
+        //static String fileName = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "7373.xlsx";//客户提供file      
         static String filePath = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
         static String fileName = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "FRA_test.xlsx";
         static String savefilePath = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
@@ -62,7 +62,7 @@ namespace FRA_INFO
         IWorkbook workbook = null;
         System.Data.DataTable dtExcel = new System.Data.DataTable();
         System.Data.DataTable dtCsv = new System.Data.DataTable();
-        
+
         //FRA porting--parameter start
         static int tryMax = 50;
         public static int PID = 0; //Jay[7/20]
@@ -93,12 +93,12 @@ namespace FRA_INFO
             Control.CheckForIllegalCrossThreadCalls = false;
             form1.chart1.Visible = true;
             SetChart();
+            InitializeTrackBar();
             ClearDataTable(dtExcel);
             ClearDataTable(dtCsv);
             peakSearch = new Peak_Search(PID);
             // peakSearch.printf();
             // GetSerialPort();
-
         }
 
         /// <summary>
@@ -253,7 +253,7 @@ namespace FRA_INFO
             }
             else
             {
-                progressBar.Value = 0;
+                //progressBar.Value = 0;
                 isSave_Data = false;
                 txtSaveData.Text = "";
             }
@@ -385,8 +385,8 @@ namespace FRA_INFO
             {                
                 string serialData = "120,16.1,-2";
                 SaveSerialPortData(cvsfilePath,serialData);//保存serial port data to csv
-
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "SaveSerialPortData ERROR");
                 return;
@@ -500,6 +500,7 @@ namespace FRA_INFO
                 writer.WriteLine(lx[i].ToString() + " " + ly[i].ToString() + " " + lz[i].ToString());
             writer.Close();
         }
+
         private void fake_getData(List<double> x, List<double> y, List<double> z)
         {
             string filename;
@@ -523,6 +524,7 @@ namespace FRA_INFO
                 z.Add(Double.Parse((myStrA[2])));
             }
         }
+
         private void fake_drawData(double x, double y)
         {
             //        chart1.Series["Phase"].Points.AddY(y);
@@ -1503,9 +1505,26 @@ namespace FRA_INFO
 
         }
 
-        private void btnAFON_Click(object sender, EventArgs e)
+        private void InitializeTrackBar()
         {
+            trbAmp.Minimum = 0;
+            trbAmp.Maximum = 60;
+            trbAmp.TickFrequency = 5;
+            trbAmp.Scroll += new EventHandler(trbAmp_Scroll);
+            trbOffset.Minimum = 0;
+            trbOffset.Maximum = 10;
+            trbOffset.TickFrequency = 1;
+            trbOffset.Scroll += new EventHandler(trbOffset_Scroll);
+        }
 
+        private void trbAmp_Scroll(object sender, EventArgs e)
+        {
+            txtAmp.Text = "" + trbAmp.Value;
+        }
+
+        private void trbOffset_Scroll(object sender, EventArgs e)
+        {
+            txtOffset.Text = "" + trbOffset.Value;
         }
     }
 

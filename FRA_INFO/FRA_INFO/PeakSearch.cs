@@ -30,10 +30,6 @@ namespace PeakSearch
 
         public List<List<float>> startPeakSearch(string filename)
         {
-
-            //float SlopeThreshold = 0.8F, AmpThreshold = -5.0F;  //7374 parameters
-            //float SlopeThreshold = 2.0F, AmpThreshold = -5.0F; //7371 parameters
-            //int smoothwidth = 1, peakgroup = 3, smoothtype = 1, ends = 0;
             int i = 0, counter = 0; 
             string line;
 
