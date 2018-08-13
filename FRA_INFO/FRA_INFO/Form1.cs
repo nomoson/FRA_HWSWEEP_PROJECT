@@ -16,7 +16,9 @@
   10.Detect-IC button can response AKM7374/7371/7375/NONE.
   11.Employ class Peak_Search constructor to switch search parameters.
 * [Date:7/30/2018] 
-  12.Activate Amp & Offset TrackBar       */
+  12.Activate Amp & Offset TrackBar       
+  [Date:8/13/2018]
+  13.Enable users to save a result file to specific destination */
 
 using System;
 using System.Collections;
@@ -237,8 +239,9 @@ namespace FRA_INFO
             if (chkSavedata.Checked == true)
             {               
                 isSave_Data = true;
-                txtSaveData.Text = cvsfilePath;//测试用
-               // Debug.WriteLine("============serialfileName ==============" + testfilePath);
+                //txtSaveData.Text = cvsfilePath;//测试用
+                cvsfilePath = txtSaveData.Text; // Jay[8/13] overwite default path & filename
+                // Debug.WriteLine("============serialfileName ==============" + testfilePath);
                 Thread ReadDataFromDTthread = new Thread(ReadDataFromDatatable);//saveDataToCSV
                 ReadDataFromDTthread.Start();
                 
@@ -382,8 +385,9 @@ namespace FRA_INFO
             Debug.WriteLine("==========ReadDataFromDatatable=======");
             ClearDataTable(dtCsv);//清空datatable
             try
-            {                
-                string serialData = "120,16.1,-2";
+            {
+                //string serialData = "120,16.1,-2";
+                string serialData = ""; // Jay[8/13]
                 SaveSerialPortData(cvsfilePath,serialData);//保存serial port data to csv
             }
             catch (Exception ex)
@@ -674,7 +678,11 @@ namespace FRA_INFO
             {
                 if (!File.Exists(csvPath))
                 {
-                    File.Create(csvPath);
+                    //File.Create(csvPath); // Jay[8/13]
+                    FileInfo finfo = new FileInfo(csvPath); 
+                    string path = finfo.DirectoryName; // get directory path
+                    if (!Directory.Exists(path))
+                        Directory.CreateDirectory(path);
                 }
                 //serialData = "10,16.1,-2";
                 if (serialData != null)
@@ -979,7 +987,7 @@ namespace FRA_INFO
                 //Debug.WriteLine("retrun data  =  ",data);
                 fra_disable();
                 fra_exit_setting();  //Jay[7/16]
-                fra_confirm_exit_setting(); //Jay[7/16]
+                //fra_confirm_exit_setting(); //Jay[8/13]
                 serialPort1.Close();
             }
             else

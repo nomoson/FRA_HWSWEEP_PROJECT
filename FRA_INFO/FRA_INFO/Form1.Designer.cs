@@ -428,12 +428,13 @@
             // 
             // txtSaveData
             // 
-            this.txtSaveData.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSaveData.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSaveData.Location = new System.Drawing.Point(96, 14);
             this.txtSaveData.Multiline = true;
             this.txtSaveData.Name = "txtSaveData";
             this.txtSaveData.Size = new System.Drawing.Size(94, 33);
             this.txtSaveData.TabIndex = 7;
+            this.txtSaveData.Text = "c:\\FRA_Save\\Test.csv";
             // 
             // chart1
             // 
