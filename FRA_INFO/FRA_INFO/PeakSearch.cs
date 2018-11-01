@@ -16,16 +16,17 @@ namespace PeakSearch
             switch (PID)
             {
                 case 14: //7374 parameters
-                    SlopeThreshold = 0.8F; AmpThreshold = -5.0F;
+                    SlopeThreshold = 0.5F; AmpThreshold = 1.0F; //7374
                     break;
                 case 9: //7371 parameters
                     SlopeThreshold = 2.0F; AmpThreshold = -5.0F; ;
                     break;
                 default: //7374 parameters
-                    SlopeThreshold = 0.8F; AmpThreshold = -5.0F; ;
+                    SlopeThreshold = 0.8F; AmpThreshold = -5.0F; //7374
                     break;
             }
-            smoothwidth = 1; peakgroup = 3; smoothtype = 1; ends = 0;
+            //smoothwidth = 1; peakgroup = 3; smoothtype = 1; ends = 0;
+            smoothwidth = 2; peakgroup = 1; smoothtype = 1; ends = 0;
         }
 
         public List<List<float>> startPeakSearch(string filename)

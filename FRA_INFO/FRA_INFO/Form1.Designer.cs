@@ -384,6 +384,7 @@
             this.txtOffset.Name = "txtOffset";
             this.txtOffset.Size = new System.Drawing.Size(100, 20);
             this.txtOffset.TabIndex = 2;
+            this.txtOffset.Text = "0";
             // 
             // btnAmp
             // 
@@ -438,7 +439,9 @@
             // chart1
             // 
             chartArea1.AxisX.IsStartedFromZero = false;
+            chartArea1.AxisX.MinorTickMark.Enabled = true;
             chartArea1.AxisX2.IsStartedFromZero = false;
+            chartArea1.AxisX2.MinorTickMark.Enabled = true;
             chartArea1.BorderColor = System.Drawing.Color.White;
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
@@ -695,7 +698,7 @@
             // 
             // serialPort1
             // 
-            this.serialPort1.PortName = "COM4";
+            this.serialPort1.PortName = "COM5";
             // 
             // Form1
             // 

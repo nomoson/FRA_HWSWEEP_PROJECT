@@ -27,7 +27,10 @@
   16.fra_confirm_setting():extend the delay 30ms on Thread.sleep(30)
   17.Form1.Designer.cs:Adopt "get { }" to retrieve the private freq. settings, no "Static" variables.
 * [Date:10/08/2018]
-  18.As 15-1                                                                                         */
+  18.As 15-1
+* [Date:11/01/2018]
+  19.MinorGrid&MinorTickMark:Logarithmic internal setting; 
+  20.COM&PID:synchronize showup COM port and PID model.                                                 */
 
 using System;
 using System.Collections;
@@ -72,7 +75,7 @@ namespace FRA_INFO
 
         //FRA porting--parameter start
         static int tryMax = 50;
-        public static int PID = 0; //Jay[7/20]
+        int PID = 0; //Jay[7/20]
         //int DriverType = 1;
         bool isFRA_Open = true; //Jay[6/23] set open loop mode
         bool isFRA_SingleFreq = false;
@@ -112,7 +115,7 @@ namespace FRA_INFO
             InitializeTrackBar();
             ClearDataTable(dtExcel);
             ClearDataTable(dtCsv);
-            peakSearch = new Peak_Search(PID);
+            //peakSearch = new Peak_Search(PID);
         }
 
         /// <summary>
@@ -126,7 +129,7 @@ namespace FRA_INFO
             //Initial logarithmic setting of starting up
             chart1.ChartAreas[0].AxisX.IsLogarithmic = false;
             chart1.ChartAreas[0].AxisX2.IsLogarithmic = false;
-
+            //
             Thread serialThread = new Thread(fra_Function);
             serialThread.Start();
             if (!serialThread.IsAlive)
@@ -147,6 +150,7 @@ namespace FRA_INFO
             {
                 //GetSerialPort();
                 fra_serial_open();
+                btnIDvalue.PerformClick();
             }
             catch (Exception ex)
             {
@@ -281,6 +285,42 @@ namespace FRA_INFO
         }
 
         /// <summary>
+        /// VS画chart
+        /// </summary>
+        public void DrawChart()
+        {
+            Debug.WriteLine("=======DrawChart===========");
+            fake_drawData();
+        }
+
+        private void fake_drawData()
+        {
+            List<double> llx = new List<double>();
+            List<double> lly = new List<double>();
+            List<double> llz = new List<double>();
+            fake_getData(llx, lly, llz);
+            chart1.Series["Gain"].Points.DataBindXY(llx, lly); //Jay[6/23]
+            chart1.Series["Phase"].Points.DataBindXY(llx, llz); //Jay[6/23]
+            // Two items need valifation: provide X xalues & Series.IsXValueIndexed is set to false
+            chart1.ChartAreas[0].AxisX.IsLogarithmic = true;
+        }
+
+        private void fake_getData(List<double> x, List<double> y, List<double> z)
+        {
+            string filename;
+            filename = filePath + "peakData.txt";
+            string[] lines = System.IO.File.ReadAllLines(filename);
+            for (int i = 0; i < lines.Length; i++) //Jay[6/23]
+            {
+                // Use a tab to indent each line of the file.
+                string[] myStrA = lines[i].Split(' ');
+                x.Add(Double.Parse((myStrA[0])));
+                y.Add(Double.Parse((myStrA[1])));
+                z.Add(Double.Parse((myStrA[2])));
+            }
+        }
+
+        /// <summary>
         /// 分析数据thread
         /// </summary>
         public void AnalysisDataThread()
@@ -385,33 +425,6 @@ namespace FRA_INFO
             Debug.WriteLine(" isSave_Data=" + isSave_Data);
         }
 
-        //private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        //{
-        //    Debug.WriteLine(" backgroundWorker1_DoWork" );
-        //    try
-        //    {
-        //        DataTabletoExcel(dtCsv, fileName);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.ToString(), "backgroundWorker1_DoWork ");
-        //        return;
-        //    }           
-        //}
-
-        //private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        //{
-        //    Debug.WriteLine(" backgroundWorker1_ProgressChanged");
-        //    this.progressBar.Value = e.ProgressPercentage;
-        //}
-
-        //private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        //{
-        //    Thread.Sleep(50);
-        //    Debug.WriteLine(" backgroundWorker1_RunWorkerCompleted");
-        //    MessageBox.Show("保存成功", "backgroundWorker提示");
-        //}
-
         /// <summary>
         ///清除table data
         /// </summary>
@@ -433,7 +446,6 @@ namespace FRA_INFO
             ClearDataTable(dtCsv);//清空datatable
             try
             {
-                //string serialData = "120,16.1,-2";
                 string serialData = ""; // Jay[8/13]
                 SaveSerialPortData(serialfileName, serialData);//保存serial port data to csv
             }
@@ -460,7 +472,6 @@ namespace FRA_INFO
                     if (!Directory.Exists(path))
                         Directory.CreateDirectory(path);
                 }
-                //serialData = "10,16.1,-2";
                 if (serialData != null)
                 {
                     try
@@ -501,6 +512,12 @@ namespace FRA_INFO
             form1.chart1.ChartAreas[0].AxisY2.MajorGrid.LineColor = Color.Gray;
             form1.chart1.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.Gray;
             form1.chart1.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.Gray;
+            //
+            form1.chart1.ChartAreas[0].AxisX.MinorGrid.Enabled = true;
+            form1.chart1.ChartAreas[0].AxisX.MinorGrid.Interval = 1;
+            form1.chart1.ChartAreas[0].AxisX.MinorGrid.LineDashStyle = ChartDashStyle.Dash;
+            form1.chart1.ChartAreas[0].AxisX.MinorGrid.LineColor = Color.Gray;
+            form1.chart1.ChartAreas[0].AxisX.MinorTickMark.Interval = 10; //10X scale setup
             //图形颜色 
             form1.chart1.Series[0].Color = Color.Blue;
             form1.chart1.Series[1].Color = Color.Orange;
@@ -516,41 +533,6 @@ namespace FRA_INFO
             // Set the measured freq range
             form1.chart1.ChartAreas[0].AxisX.Minimum = int.Parse(form1.GetStartFreq);
             form1.chart1.ChartAreas[0].AxisX.Maximum = int.Parse(form1.GetEndFreq);
-        }
-        /// <summary>
-        /// VS画chart
-        /// </summary>
-        public void DrawChart()
-        {
-            Debug.WriteLine("=======DrawChart===========");
-            fake_drawData();
-        }
-
-        private void fake_drawData()
-        {
-            List<double> llx = new List<double>();
-            List<double> lly = new List<double>();
-            List<double> llz = new List<double>();
-            fake_getData(llx, lly, llz);
-            chart1.Series["Gain"].Points.DataBindXY(llx, lly); //Jay[6/23]
-            chart1.Series["Phase"].Points.DataBindXY(llx, llz); //Jay[6/23]
-            // Two items need valifation: provide X xalues & Series.IsXValueIndexed is set to false
-            chart1.ChartAreas[0].AxisX.IsLogarithmic = true;
-        }
-
-        private void fake_getData(List<double> x, List<double> y, List<double> z)
-        {
-            string filename;
-            filename = filePath + "peakData.txt";
-            string[] lines = System.IO.File.ReadAllLines(filename);
-            for (int i = 0; i < lines.Length; i++) //Jay[6/23]
-            {
-                // Use a tab to indent each line of the file.
-                string[] myStrA = lines[i].Split(' ');
-                x.Add(Double.Parse((myStrA[0])));
-                y.Add(Double.Parse((myStrA[1])));
-                z.Add(Double.Parse((myStrA[2])));
-            }
         }
 
         /// <summary>
@@ -593,6 +575,33 @@ namespace FRA_INFO
             this.dataGridView1.Height = this.dataGridView1.Rows[0].HeaderCell.Size.Height * 7;
             this.dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.CadetBlue;
         }
+
+        //private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        //{
+        //    Debug.WriteLine(" backgroundWorker1_DoWork" );
+        //    try
+        //    {
+        //        DataTabletoExcel(dtCsv, fileName);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.ToString(), "backgroundWorker1_DoWork ");
+        //        return;
+        //    }           
+        //}
+
+        //private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        //{
+        //    Debug.WriteLine(" backgroundWorker1_ProgressChanged");
+        //    this.progressBar.Value = e.ProgressPercentage;
+        //}
+
+        //private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        //{
+        //    Thread.Sleep(50);
+        //    Debug.WriteLine(" backgroundWorker1_RunWorkerCompleted");
+        //    MessageBox.Show("保存成功", "backgroundWorker提示");
+        //}
 
         /// <summary>
         /// 保存datatable数据到excel
@@ -1306,6 +1315,7 @@ namespace FRA_INFO
         private void btnIDvalue_Click(object sender, EventArgs e)
         {
             fra_getID();
+            peakSearch = new Peak_Search(PID);
             combxIDvalue.Items.Clear();
             try
             {
